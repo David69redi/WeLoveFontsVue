@@ -31,4 +31,55 @@ const fuenteName=ref(["Korcy","Monospace","Trebuchet MS","Roboto" ])
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  h1 {
+    font-family: "Korcy Oblique", sans-serif;
+    font-size: 3rem;
+    margin-top: 100px;
+    gap: 30px;
+  }
+  input {
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid transparent;
+    outline: none;
+    transition: border-bottom-color 0.3s ease;
+
+    &:focus {
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
+.box-content {
+  width: 300px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  p {
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+    border: 0.1px dashed black;
+  }
+
+  button {
+    padding: 10px;
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+}
+</style>
