@@ -23,7 +23,7 @@ const fuenteName=ref(["Korcy","Monospace","Trebuchet MS","Roboto" ])
     />
     <div class="box-content" v-for="(fuente, i) in fuentes" :key="i">
       <h3 :style="{ fontFamily: fuente }" class="fuente-uno">{{fuenteName[i]}}</h3>
-      <p :style="{ fontFamily: fuente }" style="font-weight: bold;" class="fuente-uno">
+      <p :style="{ fontFamily: fuente, fontWeight: 'bold' }" class="fuente-uno">
         {{ inputUser }}
       </p>
       <button id="botonUno">Copiar</button>
