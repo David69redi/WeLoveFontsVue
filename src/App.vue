@@ -1,46 +1,39 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { Font } from "./model/font";
 
 const inputUser = ref("");
 
+// watch(inputUser, (nuevoValor) => {
+//   if (nuevoValor !== "") {
+//     document.documentElement.style.setProperty("--color-text", "#1c1c1e");
+//   } else {
+//     document.documentElement.style.setProperty("--color-text", "#888");
+//   }
+// });
 // ============================
 // MÉTODO 1) Usando una clase
 // ============================
 
 const korcy = new Font("Korcy", "'Korcy'");
+const korcy_cursive = new Font("Korcy Cursive", "'Korcy Oblique', sans-serif");
 const monospace = new Font("Monospace", "monospace");
-const trebuchet = new Font("Trebuchet MS", '"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande","Lucida Sans", Arial, sans-serif');
-const roboto = new Font("Roboto", `'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'`);
+const trebuchet = new Font(
+  "Trebuchet MS",
+  '"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande","Lucida Sans", Arial, sans-serif'
+);
+const roboto = new Font(
+  "Roboto",
+  `system-ui, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`
+);
 
 const fuentes = ref([korcy, monospace, trebuchet, roboto]);
 
-// ============================
-// MÉTODO 2 -> Usando un objeto (que es como una clase anónima)
-// ============================
-// const korcy = {
-//   name: "Korcy",
-//   fontFamily: "'Korcy'",
-// };
-// const monospace = {
-//   name: "Monospace",
-//   fontFamily: "monospace",
-// };
-// const trebuchet = {
-//   name: "Trebuchet MS",
-//   fontFamily: '"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande","Lucida Sans", Arial, sans-serif',
-// };
-// const roboto = {
-//   name: "Roboto",
-//   fontFamily: `'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'`
-// }
-
-// const fuentes = ref([korcy, monospace, trebuchet, roboto]);
 </script>
 
 <template>
   <main>
-    <h1>WeLoveFonts</h1>
+    <h1 :style="korcy_cursive">WeLoveFonts</h1>
     <input
       maxlength="64"
       type="text"
@@ -56,7 +49,7 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
         :style="{ fontFamily: fuente.fontFamily, fontWeight: 'bold' }"
         class="fuente-uno"
       >
-        {{ inputUser }}
+        {{ inputUser !== "" ? inputUser : "We love fonts" }}
       </p>
       <button id="botonUno">Copiar</button>
     </div>
@@ -64,8 +57,6 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
 </template>
 
 <style scoped>
-@import url("./assets/styles/fonts.css");
-
 main {
   display: flex;
   flex-direction: column;
@@ -115,6 +106,7 @@ main {
     max-width: 100%;
     height: auto;
     line-height: 1.4;
+    display: block;
   }
 
   h3 {
@@ -122,11 +114,12 @@ main {
   }
 
   p {
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    min-height: 30px;
+    display: block;
+    padding: 4px 4px;
+    font-weight: bold;
     border: 0.1px dashed var(--color-text);
+    word-break: break-word;
+    white-space: normal;
   }
 
   button {
