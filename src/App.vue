@@ -49,7 +49,7 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
         :style="{ fontFamily: fuente.fontFamily, fontWeight: 'bold' }"
         class="fuente-uno"
       >
-        {{ inputUser !== "" ? inputUser : "We love fonts" }}
+        {{ inputUser !== "" ? inputUser : "We love fonts" }}  <!--if ternario "placeholder" temporal -->
       </p>
       <button id="botonUno">Copiar</button>
     </div>
