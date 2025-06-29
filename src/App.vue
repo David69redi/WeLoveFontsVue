@@ -45,6 +45,8 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
   />
 
   <main>
+    <!-- <img src="./assets/svg/LogoWLF.svg" alt="Logo" class="logo" /> -->
+
     <h1 :style="korcy_oblique">WeLoveFonts</h1>
     <input
       maxlength="64"
@@ -69,6 +71,9 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
 </template>
 
 <style scoped>
+
+
+
 main {
   display: flex;
   flex-direction: column;
@@ -77,6 +82,14 @@ main {
   align-items: center;
   align-content: center;
   justify-content: center;
+  
+
+  /* .logo {
+    margin-top: 4rem;
+    width: 500px;
+    height: auto;
+  } 
+*/
   h1 {
     font-family: "Korcy", sans-serif;
     font-size: 3rem;
@@ -91,6 +104,7 @@ main {
     border-bottom: 1px solid transparent;
     outline: none;
     transition: border-bottom-color 0.3s ease;
+    background: none;
 
     &:focus {
       border-bottom: 1px solid black;
