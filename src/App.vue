@@ -1,6 +1,15 @@
 <script setup>
 import { ref } from "vue";
 
+async function copiarTexto(key) {
+  try {
+    await navigator.clipboard.writeText(inputUser.value);
+    console.log(key);
+  } catch (error) {
+    alert("No tengo permiso para copiar el texto");
+  }
+}
+
 const inputUser = ref("");
 
 const korcy_oblique = {
@@ -44,7 +53,7 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
       v-model="inputUser"
       placeholder="Introduce un texto"
     />
-    <div class="box-content" v-for="fuente in fuentes">
+    <div class="box-content" v-for="(fuente, i) in fuentes" :key="i">
       <h3 :style="{ fontFamily: fuente.fontFamily }" class="fuente-uno">
         {{ fuente.name }}
       </h3>
@@ -54,7 +63,7 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
       >
         {{ inputUser }}
       </p>
-      <button id="botonUno">Copiar</button>
+      <button @click="copiarTexto(i)">Copiar</button>
     </div>
   </main>
 </template>
