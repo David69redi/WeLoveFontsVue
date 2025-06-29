@@ -1,20 +1,13 @@
 @font-face {
-  font-family: "YoungMorin";
-  src: url("./fonts/YoungMorin-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Korcy";
-  src: url("./fonts/Korcy.ttf") format("truetype");
+  src: url("../../fonts/Korcy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Korcy Oblique";
-  src: url("./fonts/Korcy Oblique.ttf") format("truetype");
+  src: url("../../fonts/Korcy Oblique.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

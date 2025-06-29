@@ -2,19 +2,41 @@
 import { ref } from "vue";
 
 const inputUser = ref("");
-const fuentes = ref([
-  "'Korcy'",
-  "monospace",
-  '"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande","Lucida Sans", Arial, sans-serif',
-  `'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'`,
-]);
-const fuenteName = ref(["Korcy", "Monospace", "Trebuchet MS", "Roboto"]);
+
+const korcy_oblique = {
+  name: "Korcy",
+  fontFamily: "'Korcy Oblique'",
+};
+
+const korcy = {
+  name: "Korcy",
+  fontFamily: "'Korcy'",
+};
+const monospace = {
+  name: "Monospace",
+  fontFamily: "monospace",
+};
+const trebuchet = {
+  name: "Trebuchet MS",
+  fontFamily:
+    '"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande","Lucida Sans", Arial, sans-serif',
+};
+const roboto = {
+  name: "Roboto",
+  fontFamily: '"Roboto", sans-serif',
+};
+const fuentes = ref([korcy, monospace, trebuchet, roboto]);
 </script>
 
 <template>
+  <!-- Fuente Roboto -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
   <main>
-    <h1>WeLoveFonts</h1>
+    <h1 :style="korcy_oblique">WeLoveFonts</h1>
     <input
       maxlength="64"
       type="text"
@@ -22,11 +44,14 @@ const fuenteName = ref(["Korcy", "Monospace", "Trebuchet MS", "Roboto"]);
       v-model="inputUser"
       placeholder="Introduce un texto"
     />
-    <div class="box-content" v-for="(fuente, i) in fuentes" :key="i">
-      <h3 :style="{ fontFamily: fuente }" class="fuente-uno">
-        {{ fuenteName[i] }}
+    <div class="box-content" v-for="fuente in fuentes">
+      <h3 :style="{ fontFamily: fuente.fontFamily }" class="fuente-uno">
+        {{ fuente.name }}
       </h3>
-      <p :style="{ fontFamily: fuente, fontWeight: 'bold' }" class="fuente-uno">
+      <p
+        :style="{ fontFamily: fuente.fontFamily, fontWeight: 'bold' }"
+        class="fuente-uno"
+      >
         {{ inputUser }}
       </p>
       <button id="botonUno">Copiar</button>
@@ -35,8 +60,6 @@ const fuenteName = ref(["Korcy", "Monospace", "Trebuchet MS", "Roboto"]);
 </template>
 
 <style scoped>
-@import url("./assets/styles/fonts.css");
-
 main {
   display: flex;
   flex-direction: column;
@@ -52,8 +75,9 @@ main {
     gap: 30px;
   }
   input {
+    margin-top: 20px;
     width: 300px;
-    height: 40px;
+    height: 20px;
     border: none;
     border-bottom: 1px solid transparent;
     outline: none;
@@ -86,6 +110,7 @@ main {
     max-width: 100%;
     height: auto;
     line-height: 1.4;
+    justify-content: center;
   }
 
   h3 {
