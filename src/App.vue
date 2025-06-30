@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import BotonCopiar from "./assets/components/BotonCopiar.vue";
 
 async function copiarTexto(key) {
   try {
@@ -65,15 +66,13 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
       >
         {{ inputUser }}
       </p>
-      <button @click="copiarTexto(i)">Copiar</button>
+
+      <BotonCopiar @click="copiarTexto(i)" />
     </div>
   </main>
 </template>
 
 <style scoped>
-
-
-
 main {
   display: flex;
   flex-direction: column;
@@ -82,7 +81,6 @@ main {
   align-items: center;
   align-content: center;
   justify-content: center;
-  
 
   /* .logo {
     margin-top: 4rem;
@@ -146,20 +144,6 @@ main {
     align-items: center;
     min-height: 30px;
     border: 0.1px dashed var(--color-text);
-  }
-
-  button {
-    color: var(--color-text);
-    background-color: var(--color-background-button);
-    padding: 8px;
-    width: 80px;
-    border: none;
-    border-radius: 5px;
-    &:hover {
-      background-color: #eae9e9;
-
-      transition: background-color 0.1s ease;
-    }
   }
 }
 </style>
