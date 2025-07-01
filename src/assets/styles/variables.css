@@ -5,3 +5,11 @@
   --color-text-click: #ffffff;
   --color-background-body: #d8d8d8;
 }
+
+.dark-theme {
+  --color-background-card: #3d3d3d;
+  --color-background-button: #a3a3a3;
+  --color-text: #ffffff;
+  --color-text-click: #ffffff;
+  --color-background-body: #212121;
+}

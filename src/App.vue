@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import BotonCopiar from "./assets/components/BotonCopiar.vue";
+import SwitchTema from "./assets/components/SwitchTema.vue";
 
 async function copiarTexto(key) {
   try {
@@ -13,29 +14,32 @@ async function copiarTexto(key) {
 
 const inputUser = ref("");
 
+const darkTheme = ref("");
+
 const korcy_oblique = {
   name: "Korcy",
   fontFamily: "'Korcy Oblique'",
 };
 
-const korcy = {
-  name: "Korcy",
-  fontFamily: "'Korcy'",
-};
-const monospace = {
-  name: "Monospace",
-  fontFamily: "monospace",
-};
-const trebuchet = {
-  name: "Trebuchet MS",
-  fontFamily:
-    '"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande","Lucida Sans", Arial, sans-serif',
-};
-const roboto = {
-  name: "Roboto",
-  fontFamily: '"Roboto", sans-serif',
-};
-const fuentes = ref([korcy, monospace, trebuchet, roboto]);
+const fuentes = ref([
+  {
+    name: "Korcy",
+    fontFamily: "'Korcy'",
+  },
+  {
+    name: "Monospace",
+    fontFamily: "monospace",
+  },
+  {
+    name: "Trebuchet MS",
+    fontFamily:
+      '"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif',
+  },
+  {
+    name: "Roboto",
+    fontFamily: '"Roboto", sans-serif',
+  },
+]);
 </script>
 
 <template>
@@ -45,8 +49,17 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
     rel="stylesheet"
   />
 
-  <main>
+  <main :class="darkTheme">
     <!-- <img src="./assets/svg/LogoWLF.svg" alt="Logo" class="logo" /> -->
+    <aside>
+      <SwitchTema
+        @click="
+          () => {
+            darkTheme = darkTheme.value === 'dark-theme' ? '' : 'dark-theme';
+          }
+        "
+      />
+    </aside>
 
     <h1 :style="korcy_oblique">WeLoveFonts</h1>
     <input
@@ -74,6 +87,8 @@ const fuentes = ref([korcy, monospace, trebuchet, roboto]);
 
 <style scoped>
 main {
+  color: var(--color-text);
+  background-color: var(--color-background-body);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -88,13 +103,24 @@ main {
     height: auto;
   } 
 */
+
+  aside {
+    margin-top: 3rem;
+    width: 100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1rem;
+  }
   h1 {
     font-family: "Korcy", sans-serif;
     font-size: 3rem;
-    margin-top: 100px;
+    margin-top: 20px;
     gap: 30px;
   }
   input {
+    color: var(--color-text);
     margin-top: 20px;
     width: 300px;
     height: 20px;
@@ -105,7 +131,7 @@ main {
     background: none;
 
     &:focus {
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid var(--color-text);
     }
   }
 }

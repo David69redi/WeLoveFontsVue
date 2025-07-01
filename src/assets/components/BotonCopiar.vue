@@ -46,6 +46,10 @@ button {
   transition-duration: 700ms;
 }
 
+svg {
+  color: rgb(207, 127, 23);
+}
+
 button span:first-child {
   color: var(--color-text);
   position: absolute;
@@ -88,7 +92,6 @@ button:focus:end {
   width: 120px;
   height: 40px;
   transition-duration: 900ms;
-
 }
 
 .centralize {
