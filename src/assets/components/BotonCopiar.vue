@@ -66,7 +66,7 @@ button span:last-child {
 }
 
 button:focus {
-  background-color: var(--color-background-body);
+  background-color: var(--color-background-click);
   width: 100px;
   height: 30px;
   transition-delay: 100ms;

@@ -55,7 +55,7 @@ const fuentes = ref([
       <SwitchTema
         @click="
           () => {
-            darkTheme = darkTheme.value === 'dark-theme' ? '' : 'dark-theme';
+            darkTheme = darkTheme === 'dark-theme' ? '' : 'dark-theme';
           }
         "
       />
@@ -87,6 +87,12 @@ const fuentes = ref([
 
 <style scoped>
 main {
+
+
+  
+
+
+
   color: var(--color-text);
   background-color: var(--color-background-body);
   display: flex;
@@ -96,6 +102,9 @@ main {
   align-items: center;
   align-content: center;
   justify-content: center;
+ 
+  background-image: radial-gradient(var(--second-color-background-body) 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
 
   /* .logo {
     margin-top: 4rem;

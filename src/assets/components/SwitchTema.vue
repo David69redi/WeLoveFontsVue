@@ -103,7 +103,7 @@
   }
 
   .theme__toggle {
-    background-color: hsl(0, 0%, 65%);
+    background-color: hsl(0, 0%, 63%);
     border-radius: 25% / 50%;
     box-shadow: 0 0 0 0.125em var(--primaryT);
     padding: 0.25em;
@@ -117,7 +117,7 @@
   }
 
   .theme__toggle:before {
-    background-color: hsl(0, 0%, 23%);
+    background-color: #747474;
     border-radius: 50%;
     content: "";
     width: 2.5em;
@@ -132,7 +132,7 @@
 
   /* Checked */
   .theme__toggle:checked {
-    background-color: hsl(0, 0%, 47%);
+    background-color: hsl(0, 0%, 18%);
   }
 
   .theme__toggle:checked:before,
@@ -141,7 +141,7 @@
   }
 
   .theme__toggle:checked:before {
-    background-color: hsl(0, 0%, 28%);
+    background-color: hsl(0, 0%, 24%);
   }
 
   .theme__toggle:checked ~ .theme__fill {
