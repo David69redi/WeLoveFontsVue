@@ -12,9 +12,11 @@ async function copiarTexto(key) {
   }
 }
 
-const inputUser = ref("");
+function switchTheme() {
+  document.body.classList.toggle("dark-theme")
+}
 
-const darkTheme = ref("");
+const inputUser = ref("");
 
 const korcy_oblique = {
   name: "Korcy",
@@ -49,16 +51,10 @@ const fuentes = ref([
     rel="stylesheet"
   />
 
-  <main :class="darkTheme">
+  <main>
     <!-- <img src="./assets/svg/LogoWLF.svg" alt="Logo" class="logo" /> -->
     <aside>
-      <SwitchTema
-        @click="
-          () => {
-            darkTheme = darkTheme === 'dark-theme' ? '' : 'dark-theme';
-          }
-        "
-      />
+      <SwitchTema @click="switchTheme" />
     </aside>
 
     <h1 :style="korcy_oblique">WeLoveFonts</h1>
@@ -87,12 +83,6 @@ const fuentes = ref([
 
 <style scoped>
 main {
-
-
-  
-
-
-
   color: var(--color-text);
   background-color: var(--color-background-body);
   display: flex;
@@ -102,8 +92,11 @@ main {
   align-items: center;
   align-content: center;
   justify-content: center;
- 
-  background-image: radial-gradient(var(--second-color-background-body) 0.5px, transparent 0.5px);
+
+  background-image: radial-gradient(
+    var(--second-color-background-body) 0.5px,
+    transparent 0.5px
+  );
   background-size: 20px 20px;
 
   /* .logo {
